@@ -1,0 +1,625 @@
+# Instincts generated from https://github.com/entrepeneur4lyf/pocketbase
+# Generated: 2026-04-01T11:54:39.390Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: pocketbase-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Commit Length
+
+## Action
+
+Keep commit messages concise (~38 characters)
+
+## Evidence
+
+- Average commit message length: 38 chars
+- Based on 200 commits
+
+---
+id: pocketbase-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: pocketbase-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: pocketbase-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: pocketbase-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: pocketbase-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: pocketbase-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: pocketbase-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Test Mocking
+
+## Action
+
+Use msw for mocking
+
+## Evidence
+
+- Mocking pattern detected: msw
+- Consistent across test files
+
+---
+id: pocketbase-workflow-test-driven-development
+trigger: "when adding new functionality"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Workflow Test Driven Development
+
+## Action
+
+Follow the test-driven-development workflow:
+1. Write failing test
+2. Implement code to pass test
+3. Refactor if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: **/*.test.*, **/*.spec.*, src/**/*
+
+---
+id: pocketbase-workflow-update-ui-dist-and-env
+trigger: "when doing update ui dist and env"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Workflow Update Ui Dist And Env
+
+## Action
+
+Follow the update-ui-dist-and-env workflow:
+1. Update ui/.env if needed
+2. Build the frontend (generates new files in ui/dist/assets/ and ui/dist/index.html)
+3. Update ui/package-lock.json if npm deps changed
+4. Update CHANGELOG.md if relevant
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: ui/.env, ui/dist/assets/*.js, ui/dist/index.html
+
+---
+id: pocketbase-workflow-bump-go-dependencies
+trigger: "when doing bump go dependencies"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Workflow Bump Go Dependencies
+
+## Action
+
+Follow the bump-go-dependencies workflow:
+1. Update go.mod and go.sum
+2. Update related version check files (e.g., modernc_versions_check.go)
+3. Update CHANGELOG.md if relevant
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: go.mod, go.sum, modernc_versions_check.go
+
+---
+id: pocketbase-workflow-regenerate-jsvm-types
+trigger: "when doing regenerate jsvm types"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Workflow Regenerate Jsvm Types
+
+## Action
+
+Follow the regenerate-jsvm-types workflow:
+1. Regenerate plugins/jsvm/internal/types/generated/types.d.ts
+2. Optionally update plugins/jsvm/internal/types/types.go
+3. Optionally update CHANGELOG.md
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: plugins/jsvm/internal/types/generated/types.d.ts, plugins/jsvm/internal/types/types.go, CHANGELOG.md
+
+---
+id: pocketbase-workflow-bump-app-version
+trigger: "when doing bump app version"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Workflow Bump App Version
+
+## Action
+
+Follow the bump-app-version workflow:
+1. Update ui/.env with new version
+2. Regenerate ui/dist/assets/* and ui/dist/index.html
+3. Update CHANGELOG.md
+4. Optionally update README.md, CONTRIBUTING.md, .github/workflows/release.yaml
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: ui/.env, ui/dist/assets/*.js, ui/dist/index.html
+
+---
+id: pocketbase-workflow-fix-or-update-changelog
+trigger: "when doing fix or update changelog"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Workflow Fix Or Update Changelog
+
+## Action
+
+Follow the fix-or-update-changelog workflow:
+1. Edit CHANGELOG.md or CHANGELOG_*.md
+2. Commit the changelog update
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: CHANGELOG.md, CHANGELOG_*.md
+
+---
+id: pocketbase-instinct-file-naming
+trigger: "When creating or renaming files in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in folder/file names across repository
+
+---
+id: pocketbase-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in Go source files
+
+---
+id: pocketbase-instinct-class-naming
+trigger: "When defining a new class or struct"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Class Naming
+
+## Action
+
+Use PascalCase for class/struct names
+
+## Evidence
+
+- Pattern in Go source files
+
+---
+id: pocketbase-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in Go source files
+
+---
+id: pocketbase-instinct-import-alias
+trigger: "When importing modules/packages"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Import Alias
+
+## Action
+
+Use import aliases where appropriate
+
+## Evidence
+
+- Pattern in Go import statements
+
+---
+id: pocketbase-instinct-export-style
+trigger: "When exporting functions or types"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Export Style
+
+## Action
+
+Use mixed export style (both named and default exports as needed)
+
+## Evidence
+
+- Pattern in TypeScript and Go files
+
+---
+id: pocketbase-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Test File Pattern
+
+## Action
+
+Name the test file with the pattern *.test.ts
+
+## Evidence
+
+- Pattern in test file names
+- Example: src/utils/validation.test.ts
+
+---
+id: pocketbase-instinct-test-type
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Test Type
+
+## Action
+
+Write unit tests as the primary test type
+
+## Evidence
+
+- Testing pattern: unit
+- Example: validation.test.ts
+
+---
+id: pocketbase-instinct-mocking-style
+trigger: "When mocking APIs or network requests in tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Mocking Style
+
+## Action
+
+Use msw (Mock Service Worker) for mocking
+
+## Evidence
+
+- Testing pattern: mockingStyle: msw
+
+---
+id: pocketbase-instinct-tdd-sequence
+trigger: "When developing new features or fixing bugs"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Tdd Sequence
+
+## Action
+
+Follow TDD: write a failing test, implement code to pass, then refactor
+
+## Evidence
+
+- Workflow: test-driven-development
+- Example commits: test: add tests for user validation, feat: implement user validation
+
+---
+id: pocketbase-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Commit Format
+
+## Action
+
+Use short, freeform commit messages without enforced prefixes; average length ~38 characters
+
+## Evidence
+
+- Commits: regenerated jsvm types
+- updated ui/dist
+- bumped go deps
+
+---
+id: pocketbase-instinct-update-ui-dist
+trigger: "When frontend assets or npm dependencies are changed"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Update Ui Dist
+
+## Action
+
+Update ui/.env if needed, rebuild frontend to update ui/dist/assets and ui/dist/index.html, update ui/package-lock.json if deps changed, and update CHANGELOG.md if relevant
+
+## Evidence
+
+- Workflow: update-ui-dist-and-env
+- Files: ui/.env, ui/dist/assets/*.js, ui/dist/index.html, ui/package-lock.json, CHANGELOG.md
+
+---
+id: pocketbase-instinct-bump-go-deps
+trigger: "When Go dependencies need updating"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Bump Go Deps
+
+## Action
+
+Update go.mod and go.sum, update related version check files (e.g., modernc_versions_check.go), and update CHANGELOG.md if relevant
+
+## Evidence
+
+- Workflow: bump-go-dependencies
+- Files: go.mod, go.sum, modernc_versions_check.go, CHANGELOG.md
+
+---
+id: pocketbase-instinct-regenerate-jsvm-types
+trigger: "When Go types or APIs related to JSVM change"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Regenerate Jsvm Types
+
+## Action
+
+Regenerate plugins/jsvm/internal/types/generated/types.d.ts, optionally update plugins/jsvm/internal/types/types.go, and optionally update CHANGELOG.md
+
+## Evidence
+
+- Workflow: regenerate-jsvm-types
+- Files: plugins/jsvm/internal/types/generated/types.d.ts, plugins/jsvm/internal/types/types.go, CHANGELOG.md
+
+---
+id: pocketbase-instinct-bump-app-version
+trigger: "When releasing a new version or incrementing the app version"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Bump App Version
+
+## Action
+
+Update ui/.env with new version, regenerate ui/dist/assets and ui/dist/index.html, update CHANGELOG.md, and optionally update README.md, CONTRIBUTING.md, .github/workflows/release.yaml
+
+## Evidence
+
+- Workflow: bump-app-version
+- Files: ui/.env, ui/dist/assets/*.js, ui/dist/index.html, CHANGELOG.md, README.md, CONTRIBUTING.md, .github/workflows/release.yaml
+
+---
+id: pocketbase-instinct-update-changelog
+trigger: "When recording changes, fixes, or backports"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: entrepeneur4lyf/pocketbase
+---
+
+# Pocketbase Instinct Update Changelog
+
+## Action
+
+Edit CHANGELOG.md or CHANGELOG_*.md and commit the changelog update
+
+## Evidence
+
+- Workflow: fix-or-update-changelog
+- Files: CHANGELOG.md, CHANGELOG_*.md
+
